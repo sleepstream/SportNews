@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SportNews</string>
+    <string name="action_settings">Settings</string>
+    <string name="football">Футбол</string>
+    <string name="hockey">Хокей</string>
+    <string name="tennis">Тенис</string>
+    <string name="basketball">Баскетбол</string>
+    <string name="volleyball">Волейбол</string>
+    <string name="cybersport">Киберспорт</string>
+    <string name="allNews">Все новости</string>
+    <string name="connectionError">Проверьте интернет соединение</string>
+    <string name="noData">Нет данных</string>
+    <string name="error_server">Ошибка сервера</string>
+    <string name="error_server_404">Ошибка сервера 404</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="error_404" type="id">Ошибка сервера 404</item>
+    <item name="error_server" type="id">Ошибка сервера</item>
+</resources>

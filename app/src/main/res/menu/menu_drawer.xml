@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/allNews"
+                android:title="@string/allNews" />
+        <item
+                android:id="@+id/football"
+                android:title="@string/football" />
+        <item
+                android:id="@+id/hockey"
+                android:title="@string/hockey" />
+        <item
+                android:id="@+id/tennis"
+                android:title="@string/tennis" />
+        <item
+                android:id="@+id/basketball"
+                android:title="@string/basketball" />
+
+        <item
+                android:id="@+id/volleyball"
+                android:title="@string/volleyball" />
+        <item
+                android:id="@+id/cybersport"
+                android:title="@string/cybersport" />
+    </group>
+</menu>
