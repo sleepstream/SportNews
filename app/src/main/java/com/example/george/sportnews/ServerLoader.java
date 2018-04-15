@@ -1,15 +1,15 @@
 package com.example.george.sportnews;
 
-import com.google.gson.Gson;
-import okhttp3.*;
+import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 public class ServerLoader {
 
-    OkHttpClient client;// = new OkHttpClient().retryOnConnectionFailure();
+    private OkHttpClient client;// = new OkHttpClient().retryOnConnectionFailure();
     private String urlGet;
     private Map<String, String> headerGet;
     public String body;

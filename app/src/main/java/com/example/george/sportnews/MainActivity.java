@@ -3,6 +3,7 @@ package com.example.george.sportnews;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,9 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.google.gson.Gson;
@@ -30,19 +30,19 @@ public class MainActivity extends AppCompatActivity implements  SwipeRefreshLayo
     private String[] categories=new String[]{ "football", "hockey", "tennis", "basketball", "volleyball", "cybersport"};
     private String urlNewsList = "http://mikonatoruri.win/list.php?category=";
 
-    public static Context context;
+    public Context context;
 
     private LoadNews loadNews;
     private DrawerLayout mDrawerLayout;
     private RelativeLayout loadingPanel;
     private NewsListAdapter newsListAdapter;
     private LinearLayoutManager llm;
-    public RecyclerView recyclerViewNewsList;
+    private RecyclerView recyclerViewNewsList;
     private SwipeRefreshLayout swipe_container;
 
-    private List<Events> listNews = new ArrayList<Events>();
+    private List<Events> listNews = new ArrayList<>();
 
-    public Obj dataFromServer;
+    private Obj dataFromServer;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -72,17 +72,20 @@ public class MainActivity extends AppCompatActivity implements  SwipeRefreshLayo
         newsListAdapter = new NewsListAdapter(context, this, listNews);
         recyclerViewNewsList.setAdapter(newsListAdapter);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+        if (actionbar != null) {
+            actionbar.setDisplayHomeAsUpEnabled(true);
+            actionbar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
+        }
+
 
         NavigationView navigationView = findViewById(R.id.slidPanel);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                         menuItem.setChecked(true);
                         mDrawerLayout.closeDrawers();
                         switch(menuItem.getItemId())
@@ -139,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements  SwipeRefreshLayo
 
 
 
-    public void bodyJsonParse(String body)
+    private void bodyJsonParse(String body)
     {
         Gson gSon = new Gson();
         dataFromServer  = gSon.fromJson(body, Obj.class);

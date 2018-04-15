@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import okhttp3.Response;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -65,7 +64,7 @@ private LinearLayout articleNews;
         loadNews = new LoadNews();
         loadNews.execute();
     }
-    public void bodyJsonParse(String body)
+    private void bodyJsonParse(String body)
     {
         try {
             Gson gSon = new Gson();
